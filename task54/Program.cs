@@ -22,13 +22,13 @@
 int[,] GenerateMatrix() // генерация матрицы целых чисел
 {
     Random rand = new Random();
-    int[,] matrix = new int[rand.Next(4, 11), rand.Next(4, 11)];
+    int[,] matrix = new int[rand.Next(4, 8), rand.Next(4, 8)];
 
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rand.Next(1, 10);
+            matrix[i, j] = rand.Next(0, 10);
         }
     }
 
@@ -84,6 +84,8 @@ void SortRowsOfMatrix(int[,] matrix) // метод сортировки по у�
 Console.WriteLine();
 int[,] myMatrix = GenerateMatrix();
 PrintMatrix(myMatrix);
+Console.WriteLine();
+Console.WriteLine("Сортировка элементов каждой СТРОКИ матрицы по убыванию (по условии задачи):");
 Console.WriteLine();
 SortRowsOfMatrix(myMatrix);
 PrintMatrix(myMatrix);
