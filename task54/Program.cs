@@ -17,3 +17,67 @@
 8 4 4 2
 
 ****************************************************************/
+
+
+int[,] GenerateMatrix() // генерация матрицы целых чисел
+{
+    Random rand = new Random();
+    int[,] matrix = new int[rand.Next(5, 6), rand.Next(4, 5)];
+
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = rand.Next(1, 10);
+        }
+    }
+
+    return matrix;
+}
+
+void PrintMatrix(int[,] matrix) // вывод матрицы целых чисел
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            Console.Write(matrix[i, j] + "\t");
+        }
+        Console.WriteLine();
+    }
+}
+
+void SortRowsOfMatrix(int[,] matrix) // метод сортировки по убыванию элементов каждой строки матрицы
+{
+    int temp, maxCol;
+
+    for (int row = 0; row < matrix.GetLength(0); row++)
+    {
+        for (int col = 0; col < matrix.GetLength(1) - 1; col++)
+        {
+            maxCol = col + 1;
+
+            for (int subCol = col + 1; subCol < matrix.GetLength(1); subCol++)
+            {
+                if (matrix[row, subCol] > matrix[row, maxCol]) maxCol = subCol;
+            }
+            if (matrix[row, maxCol] > matrix[row, col])
+            {
+                temp = matrix[row, col];
+                matrix[row, col] = matrix[row, maxCol];
+                matrix[row, maxCol] = temp;
+                continue;
+            }
+            temp = matrix[row, col + 1];
+            matrix[row, col + 1] = matrix[row, maxCol];
+            matrix[row, maxCol] = temp;
+        }
+    }
+}
+
+
+int[,] myMatrix = GenerateMatrix();
+PrintMatrix(myMatrix);
+Console.WriteLine();
+SortRowsOfMatrix(myMatrix);
+PrintMatrix(myMatrix);
