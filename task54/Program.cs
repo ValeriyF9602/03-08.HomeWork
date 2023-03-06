@@ -22,7 +22,7 @@
 int[,] GenerateMatrix() // генерация матрицы целых чисел
 {
     Random rand = new Random();
-    int[,] matrix = new int[rand.Next(5, 6), rand.Next(4, 5)];
+    int[,] matrix = new int[rand.Next(4, 11), rand.Next(4, 11)];
 
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -47,7 +47,7 @@ void PrintMatrix(int[,] matrix) // вывод матрицы целых чисе
     }
 }
 
-void SortRowsOfMatrix(int[,] matrix) // метод сортировки по убыванию элементов каждой строки матрицы
+void SortRowsOfMatrix(int[,] matrix) // метод сортировки по убыванию элементов КАЖДОЙ СТРОКИ матрицы
 {
     int temp, maxCol;
 
@@ -68,6 +68,12 @@ void SortRowsOfMatrix(int[,] matrix) // метод сортировки по у�
                 matrix[row, maxCol] = temp;
                 continue;
             }
+            else if (col + 1 == maxCol) continue; // есть ли смысл в этом сравнении?
+            
+            // Что сложнее для компьютера?
+            // а) проверить это равенство и если оно отвечает истине — завершить итерацию;
+            // б) не проводить сравнение и просто перезаписать себя же на себя.
+
             temp = matrix[row, col + 1];
             matrix[row, col + 1] = matrix[row, maxCol];
             matrix[row, maxCol] = temp;
@@ -75,9 +81,10 @@ void SortRowsOfMatrix(int[,] matrix) // метод сортировки по у�
     }
 }
 
-
+Console.WriteLine();
 int[,] myMatrix = GenerateMatrix();
 PrintMatrix(myMatrix);
 Console.WriteLine();
 SortRowsOfMatrix(myMatrix);
 PrintMatrix(myMatrix);
+Console.WriteLine();
