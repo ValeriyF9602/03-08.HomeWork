@@ -22,7 +22,6 @@ int[,] GenerateSpiralMatrix() // Генерация спирально запо�
 
     for (int step = 0; num <= matrix.Length; step++)
     {
-
         for (int i = step; i < matrix.GetLength(1) - step; i++)
         {
             if (num > matrix.Length) return matrix;
@@ -53,7 +52,6 @@ int[,] GenerateSpiralMatrix() // Генерация спирально запо�
 
 void PrintMatrix(int[,] matrix) // вывод матрицы целых чисел
 {
-    Console.WriteLine();
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
@@ -62,9 +60,10 @@ void PrintMatrix(int[,] matrix) // вывод матрицы целых чисе
         }
         Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
 
 int[,] myMatrix = GenerateSpiralMatrix();
+Console.WriteLine();
 PrintMatrix(myMatrix);
+Console.WriteLine();
