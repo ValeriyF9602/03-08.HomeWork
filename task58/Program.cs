@@ -112,3 +112,4 @@ PrintMatrix(b, "Матрица B");
 
 Console.WriteLine();
 MultiplyMatrices(a, b, "Матрица AB");
+Console.WriteLine();
