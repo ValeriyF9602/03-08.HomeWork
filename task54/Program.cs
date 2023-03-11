@@ -84,9 +84,11 @@ void SortRowsOfMatrix(int[,] matrix) // метод сортировки по у�
 Console.WriteLine();
 int[,] myMatrix = GenerateMatrix();
 PrintMatrix(myMatrix);
+
 Console.WriteLine();
 Console.WriteLine("Сортировка элементов каждой СТРОКИ матрицы по убыванию (по условии задачи):");
 Console.WriteLine();
+
 SortRowsOfMatrix(myMatrix);
 PrintMatrix(myMatrix);
 Console.WriteLine();
