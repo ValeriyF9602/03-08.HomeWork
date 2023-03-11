@@ -49,7 +49,6 @@ int[,,] GenerateCube()
 
 void PrintCube(int[,,] cube)
 {
-    Console.WriteLine();
     for (int k = 0; k < cube.GetLength(2); k++) // этаж (уровень, страница, матрица)
     {
         for (int i = 0; i < cube.GetLength(0); i++) // строка
@@ -65,5 +64,6 @@ void PrintCube(int[,,] cube)
 }
 
 int[,,] myCube = GenerateCube();
+Console.WriteLine();
 PrintCube(myCube);
 
